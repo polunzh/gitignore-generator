@@ -1,5 +1,5 @@
 {
-  "name": "gg",
+  "name": "my-gitignore-generator",
   "version": "0.0.1",
   "bin": {
     "gg": "index.js"
