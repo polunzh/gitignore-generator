@@ -81,7 +81,7 @@ function getVersion() {
     return package.version;
 }
 
-const usage = 'Usage: gg <template>';
+const usage = 'Usage: mgg <template>';
 const argv = require('yargs')
     .usage(usage)
     .version(getVersion)

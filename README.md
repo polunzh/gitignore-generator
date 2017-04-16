@@ -7,12 +7,12 @@ A `gitignore` file generator tool, the file template comes from:
 ## Usage:
 
 ``` shell
-gg <template>
+mgg <template>
 ```
 
 ## More
 ``` shell
-gg -h   # get help
+mgg -h   # get help
 ```
 
 ## TODO:
