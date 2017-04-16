@@ -3,7 +3,6 @@ const path = require('path');
 
 const colors = require('colors');
 const ProgressBar = require('progress');
-const axios = require('axios');
 const simpleGit = require('simple-git')(__dirname);
 const fs = require('fs-extra');
 const argv = require('yargs').argv;
@@ -44,7 +43,7 @@ function downloadRepo(callback) {
             console.log('info: '.green + 'unzip...');
             fs.createReadStream(repoZipPath)
                 .pipe(unzip.Extract({
-                    path: '.'
+                    path: __dirname
                 }).on('close', () => {
                     console.log('info: '.green + 'unzipped...');
 
@@ -87,17 +86,17 @@ const ignoreType = argv._[0].toLowerCase();
 
 exports.generate = (() => {
     getData((err, dict) => {
-        // if (fs.existsSync(path.join(__dirname, '.gitignore'))) {
-        //     console.log('WARNING: gitignore file already exist!'.yellow);
-        //     process.exit(-1);
-        // }
+        if (fs.existsSync(path.join('.gitignore'))) {
+            console.log('WARNING: gitignore file already exist!'.yellow);
+            process.exit(-1);
+        }
 
         if (!dict[ignoreType]) {
             console.error('Error: no such gitignore!!!'.red);
             process.exit(-1);
         }
 
-        fs.copySync(dict[ignoreType], '1.gitignore');
+        fs.copySync(dict[ignoreType], '.gitignore');
         console.log(`\n\t${ignoreType[0].toUpperCase()+ignoreType.substr(1)} gitignore file generated success!`.green);
     });
 });

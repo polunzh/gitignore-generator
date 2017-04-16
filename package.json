@@ -1,12 +1,15 @@
 {
   "name": "gg",
   "version": "0.0.1",
+  "bin": {
+    "gg": "index.js"
+  },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/polunzh/app.git"
   },
   "description": "gitignore file generator",
-  "main": "index.js",
   "dependencies": {
     "colors": "^1.1.2",
     "fs-extra": "^2.1.2",
@@ -21,6 +24,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "polunzh",
   "license": "ISC"
 }
