@@ -7,7 +7,7 @@
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/polunzh/app.git"
+    "url": "https://github.com/polunzh/gitignore-generator"
   },
   "description": "gitignore file generator",
   "dependencies": {

@@ -16,5 +16,5 @@ gg -h   # get help
 ```
 
 ## TODO:
-- [] `global` option
-- [] custom ignore template
+- [ ] `global` option
+- [ ] custom ignore template
