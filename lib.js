@@ -5,7 +5,6 @@ const colors = require('colors');
 const ProgressBar = require('progress');
 const simpleGit = require('simple-git')(__dirname);
 const fs = require('fs-extra');
-const argv = require('yargs').argv;
 const rp = require('request-promise');
 const unzip = require('unzip');
 
@@ -77,8 +76,23 @@ function getData(callback) {
     }
 }
 
+function getVersion() {
+    let package = JSON.parse(fs.readFileSync(path.join(__dirname, './package.json')));
+    return package.version;
+}
+
+const usage = 'Usage: gg <template>';
+const argv = require('yargs')
+    .usage(usage)
+    .version(getVersion)
+    .alias('v', 'version')
+    .alias('h', 'help')
+    .help()
+    .argv;
+
+
 if (argv._.length < 1) {
-    console.error('usage:\n \t gg [type name]'.green);
+    console.error(usage.green);
     process.exit(-1);
 }
 
